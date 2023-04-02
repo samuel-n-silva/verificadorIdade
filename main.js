@@ -43,15 +43,28 @@
 const bugDoMilenio = 2000;
 const anoAtual = 2023;
 
+const mostrarMensagem = document.querySelector('#mostrarMensagem');
+const anoText = document.querySelector('#_ano');
+const inputIdade = document.querySelector('#_idade');
 
+function clear(){
+    mostrarMensagem.textContent = "";
+    anoText.textContent = "";
+    inputIdade.value = "";
+}
 
 function verificarIdade(){
-    const mostrarMensagem = document.querySelector('#mostrarMensagem');
-    const inputIdade = document.querySelector('#_idade');
+    
     let convertIdade = parseInt(inputIdade.value);
     let verficarAno = anoAtual - convertIdade;
     
-    mostrarMensagem.textContent = "";
+    clear();
+
+    if(convertIdade >= 1){
+        anoText.textContent = `Nascido no ano de ${verficarAno}`;
+    }
+
+    // console.log(anoText.textContent);
 
     if(convertIdade >= 18){
         mostrarMensagem.textContent = "Você é maior de Idade"
@@ -67,8 +80,6 @@ function verificarIdade(){
     }
 
     // console.log(verficarAno, bugDoMilenio)
-
-    inputIdade.value = '';
 }
 
 let valido = true;
