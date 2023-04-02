@@ -48,6 +48,7 @@ const anoAtual = 2023;
 function verificarIdade(){
     const mostrarMensagem = document.querySelector('#mostrarMensagem');
     const inputIdade = document.querySelector('#_idade');
+    mostrarMensagem.textContent = "";
 
     let convertIdade = parseInt(inputIdade.value);
     if (convertIdade >= 65){
