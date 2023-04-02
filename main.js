@@ -48,15 +48,19 @@ const anoAtual = 2023;
 function verificarIdade(){
     const mostrarMensagem = document.querySelector('#mostrarMensagem');
     const inputIdade = document.querySelector('#_idade');
+    let convertIdade = parseInt(inputIdade.value);
+    let verficarAno = anoAtual - convertIdade;
+    
     mostrarMensagem.textContent = "";
 
-    let convertIdade = parseInt(inputIdade.value);
+    if(convertIdade >= 18){
+        mostrarMensagem.textContent = "Você é maior de Idade"
+    }
+
     if (convertIdade >= 65){
         mostrarMensagem.textContent = "Você Já Pode se Aposentar"
         // console.log("Clique!",typeof convertIdade);
     }
-
-    let verficarAno = anoAtual - convertIdade;
 
     if ( verficarAno === bugDoMilenio) {
         mostrarMensagem.textContent = "Você Nasceu no Ano do Bug do Milênio";
@@ -66,3 +70,11 @@ function verificarIdade(){
 
     inputIdade.value = '';
 }
+
+let valido = true;
+
+let exp1 = valido && !valido; //false
+let exp2 = valido || !valido; //true
+let resultado = !(exp1 || exp2); //true é false
+
+console.log(resultado); //false
